@@ -4,15 +4,15 @@ Mandelbrot fractal computations
 
 from math import log, log2
 
-class mdFractal:
-    """Class that computes the terms of the Mandelbrot sequence"""
+class MdFractal:
+    """Represents the handling of the construction of a Mandelbrot fractal"""
 
-    MAX_ITERATIONS = 500
-    
-    # Return iterations needed to reach mod > 2
-    def mandelbrot(self, c):
-        z = 0
-        n = 0
+    MAX_ITERATIONS: int = 500
+
+    def mandelbrot(self, c) -> float:
+        """Determines the iterations needed to reach mod > 2"""
+        z: int = 0
+        n: int = 0
         while abs(z) <= 2 and n < self.MAX_ITERATIONS:
             z = z * z + c
             n += 1
@@ -24,4 +24,5 @@ if __name__ == "__main__":
     for a in range(-10, 10, 5):
         for b in range(-10, 10, 5):
             c = complex(a / 10, b / 10)
-            print(c, mdFractal().mandelbrot(c))
+            print(c, MdFractal().mandelbrot(c))
+

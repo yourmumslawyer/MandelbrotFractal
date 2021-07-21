@@ -3,41 +3,40 @@ Draws the Mandelbrot fractal as an image
 """
 
 from PIL import Image, ImageDraw
-from mandelbrotfractal import mdFractal
+from mandelbrotfractal import MdFractal
 
-# Image size in pixels
-WIDTH = 600
-HEIGHT = 400
+WIDTH: int = 600
+HEIGHT: int = 400
 
-# Window size in pixels
-RE_START = -2
-RE_END = 1
-IM_START = -1
-IM_END = 1
+RE_START: int = -2
+RE_END: int = 1
+IM_START: int = -1
+IM_END: int = 1
 
+# Iterate over the width pixels to conver coordinate of pixel into a complex number of the complex plane
+#def composeImage():
 im = Image.new('HSV', (WIDTH, HEIGHT), (0, 0, 0))
 draw = ImageDraw.Draw(im)
 
-# Iterate over the width pixels to conver coordinate of pixel into a complex number of the complex plane
 for x in range(0, WIDTH): 
     for y in range(0, HEIGHT): 
-        
+
         # Convert coordinate to complex number
         c = complex(RE_START + (x / WIDTH) * (RE_END - RE_START), IM_START + (y / HEIGHT) * (IM_END - IM_START))
 
         # Compute number of iterations
-        m = mdFractal().mandelbrot(c)
+        m = MdFractal().mandelbrot(c)
 
         # Color depends on the number of iterations
         # Adjust color by altering the hue
-        hue = int(400 * m / mdFractal().MAX_ITERATIONS) # 255
-        saturation = 255 # 255
-        if m < mdFractal().MAX_ITERATIONS:
-            value = 255 # 255
+        hue = int(400 * m / MdFractal().MAX_ITERATIONS) 
+        saturation = 400 
+        if m < MdFractal().MAX_ITERATIONS:
+            value = 400 
         else:
             value = 0
 
         # Plot
         draw.point([x, y], (hue, saturation, value))
 
-im.convert('RGB').save('output.png', 'PNG')
+im.convert('RGB').save('fractal.png', 'PNG')
