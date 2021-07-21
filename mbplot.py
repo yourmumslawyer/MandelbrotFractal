@@ -25,9 +25,9 @@ for x in range(0, WIDTH):
         # Color depends on the number of iterations
         # Adjust color by altering the hue
         hue = int(400 * m / mdFractal().MAX_ITERATIONS) # 255
-        saturation = 400 # 255
+        saturation = 255 # 255
         if m < mdFractal().MAX_ITERATIONS:
-            value = 400 # 255
+            value = 255 # 255
         else:
             value = 0
         # Plot
