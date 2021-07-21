@@ -13,12 +13,12 @@ IM_END = 1
 
 palette = []
 
-im = Image.new('RGB', (WIDTH, HEIGHT), (0, 0, 0))
+im = Image.new('HSV', (WIDTH, HEIGHT), (0, 0, 0))
 draw = ImageDraw.Draw(im)
 
 # Iterate over the width pixels to conver coordinate of pixel into a complex number of the complex plane
-for x in range(WIDTH): # range(0, WIDTH)
-    for y in range(HEIGHT): # range(0, HEIGHT)
+for x in range(0, WIDTH): 
+    for y in range(0, HEIGHT): 
 
         # Convert coordinate to complex number
         c = complex(RE_START + (x / WIDTH) * (RE_END - RE_START), IM_START + (y / HEIGHT) * (IM_END - IM_START))
@@ -29,7 +29,6 @@ for x in range(WIDTH): # range(0, WIDTH)
         # Color depends on the number of iterations
         # Adjust color by altering the hue
         hue = int(255 * m / MAX_ITERATIONS)
-        # color = 255 - int(m * 255 / MAX_ITERATIONS)
         saturation = 255
         if m < MAX_ITERATIONS:
             value = 255
@@ -37,7 +36,6 @@ for x in range(WIDTH): # range(0, WIDTH)
             value = 0
 
         # Plot
-        # draw.point([x, y], (color, color, color))
         draw.point([x, y], (hue, saturation, value))
 
 im.convert('RGB').save('output.png', 'PNG')

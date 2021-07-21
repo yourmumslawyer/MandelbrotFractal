@@ -1,7 +1,8 @@
 from math import log, log2
 
 # Return iterations needed to reach mod > 2
-MAX_ITERATIONS = 80
+MAX_ITERATIONS = 500
+
 def mandelbrot(c):
     z = 0
     n = 0
@@ -13,10 +14,10 @@ def mandelbrot(c):
 
     return n + 1 - log(log2(abs(z)))
 
+'''
 if __name__ == "__main__":
     for a in range(-10, 10, 5):
         for b in range(-10, 10, 5):
             c = complex(a / 10, b / 10)
             print(c, mandelbrot(c))
-
-
+'''
