@@ -1,8 +1,7 @@
-# Mandelbrot Fractal
-
-MAX_ITERATIONS = 100
+from math import log, log2
 
 # Return iterations needed to reach mod > 2
+MAX_ITERATIONS = 100
 def mandelbrot(c):
     z = 0
     n = 0
