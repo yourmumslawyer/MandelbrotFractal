@@ -7,7 +7,10 @@ from math import log, log2
 class MdFractal:
     """Represents the handling of the construction of a Mandelbrot fractal"""
 
-    MAX_ITERATIONS: int = 500
+    def __init__(self):
+        pass
+
+    MAX_ITERATIONS: int = 100
 
     def mandelbrot(self, c) -> float:
         """Determines the iterations needed to reach mod > 2"""

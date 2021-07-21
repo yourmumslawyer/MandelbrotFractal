@@ -9,9 +9,9 @@ WIDTH: int = 600
 HEIGHT: int = 400
 
 RE_START: int = -2
-RE_END: int = 1
-IM_START: int = -1
-IM_END: int = 1
+RE_END: int = 1 
+IM_START: int = -1 
+IM_END: int = 1 
 
 # Iterate over the width pixels to conver coordinate of pixel into a complex number of the complex plane
 #def composeImage():
