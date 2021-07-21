@@ -1,7 +1,14 @@
+"""
+Mandelbrot fractal computations
+"""
+
 from math import log, log2
 
 class mdFractal:
+    """Class that computes the terms of the Mandelbrot sequence"""
+
     MAX_ITERATIONS = 500
+    
     # Return iterations needed to reach mod > 2
     def mandelbrot(self, c):
         z = 0

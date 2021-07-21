@@ -1,6 +1,9 @@
+"""
+Draws the Mandelbrot fractal as an image
+"""
+
 from PIL import Image, ImageDraw
 from mandelbrotfractal import mdFractal
-import dis
 
 # Image size in pixels
 WIDTH = 600
@@ -18,10 +21,13 @@ draw = ImageDraw.Draw(im)
 # Iterate over the width pixels to conver coordinate of pixel into a complex number of the complex plane
 for x in range(0, WIDTH): 
     for y in range(0, HEIGHT): 
+        
         # Convert coordinate to complex number
         c = complex(RE_START + (x / WIDTH) * (RE_END - RE_START), IM_START + (y / HEIGHT) * (IM_END - IM_START))
+
         # Compute number of iterations
         m = mdFractal().mandelbrot(c)
+
         # Color depends on the number of iterations
         # Adjust color by altering the hue
         hue = int(400 * m / mdFractal().MAX_ITERATIONS) # 255
@@ -30,6 +36,7 @@ for x in range(0, WIDTH):
             value = 255 # 255
         else:
             value = 0
+
         # Plot
         draw.point([x, y], (hue, saturation, value))
 
