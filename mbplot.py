@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw
-from mandelbrotfractal import mandelbrot, MAX_ITERATIONS
+from mandelbrotfractal import mdFractal
 import dis
 
 # Image size in pixels
@@ -21,12 +21,12 @@ for x in range(0, WIDTH):
         # Convert coordinate to complex number
         c = complex(RE_START + (x / WIDTH) * (RE_END - RE_START), IM_START + (y / HEIGHT) * (IM_END - IM_START))
         # Compute number of iterations
-        m = mandelbrot(c)
+        m = mdFractal().mandelbrot(c)
         # Color depends on the number of iterations
         # Adjust color by altering the hue
-        hue = int(400 * m / MAX_ITERATIONS) # 255
+        hue = int(400 * m / mdFractal().MAX_ITERATIONS) # 255
         saturation = 400 # 255
-        if m < MAX_ITERATIONS:
+        if m < mdFractal().MAX_ITERATIONS:
             value = 400 # 255
         else:
             value = 0
@@ -34,4 +34,3 @@ for x in range(0, WIDTH):
         draw.point([x, y], (hue, saturation, value))
 
 im.convert('RGB').save('output.png', 'PNG')
-
