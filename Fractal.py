@@ -1,3 +1,4 @@
+# Mandelbrot Fractal
 
 MAX_ITERATIONS = 100
 
