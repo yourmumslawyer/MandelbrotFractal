@@ -2,7 +2,7 @@ from PIL import Image
 from numpy import complex, array
 import colorsys
 
-WIDTH = 1024
+WIDTH = 1200
 
 def rgb_conv(i):
     color = 255 * array(colorsys.hsv_to_rgb(i / 255.0, 1.0, 0.5))
